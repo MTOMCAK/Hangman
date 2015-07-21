@@ -3,6 +3,7 @@ var secret = "Java Script";
 var lettersGuessed='';
 var counter = 1;
 
+// getGuessedWord()
 function getGuessedWord(secret, lettersGuessed)
 {
   var result='';
@@ -25,10 +26,10 @@ function getGuessedWord(secret, lettersGuessed)
 function OnClick(event){
 
 event.target.setAttribute("disabled", "disabled");
-// refresh clicked button
 
+// refresh clicked button
 var el = document.getElementById('secret');
-el.textContent = getGuessedWord("java");
+el.textContent = getGuessedWord("a");
 // refresh lettersGuessed
 console.log(event.textContent);
 
