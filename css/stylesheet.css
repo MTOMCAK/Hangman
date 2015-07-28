@@ -1,6 +1,7 @@
 h1{
 	text-align: center;
-	color: #808080;
+	color: #808081;
+	font-family: 'Lobster', cursive;
 }
 .row{
 	width: 960px;
@@ -15,4 +16,5 @@ h1{
 	font-size: 4em;
 	letter-spacing: 0.5em;
 	text-align: center;
+	font-family: 'Lobster', cursive;
 }
