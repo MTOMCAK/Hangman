@@ -3,7 +3,9 @@ var secret = "Java Script"; // finding word's
 var lettersGuessed=''; 
 var counter = 1;            // count of attempt
 var insertChar = ' ';             // inserted char from alphabet
+var stringCheck;            // check if player find char
 
+// replace char '_' to blank space' '
 for (var i = 0; i < secret.length; i++)
 {
   if (secret[i].localeCompare(' ') == 0)
@@ -38,7 +40,6 @@ function clearAllButtons(event){
   var chNodes = document.getElementById("buttons").childNodes;
   for(var n in chNodes)
     {
-      console.log(chNodes[n]);
       if (n === 1) { chNodes[n].removeAttribute("disabled", "disabled");}
     }
 }
@@ -51,19 +52,28 @@ event.target.setAttribute("disabled", "disabled");
 var el = document.getElementById('secret');
 
 insertChar += event.target.textContent;
+stringCheck = getGuessedWord(secret.toUpperCase(), insertChar);
 
-el.textContent = getGuessedWord(secret.toUpperCase(), insertChar);
+console.log(counter);
+//console.log(stringCheck.toUpperCase().localeCompare(el.textContent));
 
+if (stringCheck.toUpperCase().localeCompare(el.textContent) != 0 )
+{
+  ++counter;
+  el.textContent = stringCheck
+}
+else {
+  el.textContent = stringCheck;
+}
+//  console.log(counter);
 // refresh lettersGuessed
 
-console.log(secret.localeCompare(el.textContent));
+// check if you find the secret words
+//console.log(secret.localeCompare(el.textContent));
 if ( secret.toUpperCase().localeCompare(el.textContent) ==  0)
   {
     confirm('You won ! Play again ?')
   }
-
-//console.log(event.target.textContent);
-// console.log(el.textContent.indexOf(' '));
 }
 
 // generate alphabet buttons
